@@ -50,6 +50,23 @@ export default function TextForms(props) {
     setText(text.replace(/\b\w/g, l => l.toUpperCase()));
     props.alertChanger('capitalize each words.', 'success');
   }
+
+
+  const calWords = (text) => {
+    // Trim the sentence to remove leading and trailing whitespace
+    const trimmedSentence = text.trim();
+
+    // Check if the sentence is empty after trimming
+    if (trimmedSentence === "") {
+      return 0;
+    }
+
+    // Split the sentence into words based on spaces
+    const words = trimmedSentence.split(/\s+/);
+
+    // Return the number of words
+    return words.length;
+  }
   return (
     <>
       <div className='darkMode' style={{ color: props.mode === 'dark' ? 'white' : 'Black' }}>
@@ -59,16 +76,16 @@ export default function TextForms(props) {
             <textarea className={`form-control text-${props.mode === 'dark' ? 'light' : 'dark'} bg-${props.mode} td`} value={text} onChange={ChangeHandel} id="textAreaId"  ></textarea>
           </div>
           <div className='text-left'>
-            <button type="button" className={`btn btn-outline-${props.mode === 'light' ? 'dark' : 'light'} m-2`} onClick={uppercase}>UpperCase</button>
-            <button type="button" className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} m-2`} onClick={lowercase}>LowerCase</button>
+            <button type="button" className={`btn btn-outline-${props.mode === 'light' ? 'dark' : 'light'} m-2`} onClick={uppercase}>Upper case</button>
+            <button type="button" className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} m-2`} onClick={lowercase}>Lower case</button>
             <button type="button" className={`btn btn-outline-${props.mode === 'light' ? 'dark' : 'light'} m-2`} onClick={removeSpace}>Remove extra spaces</button>
             <button type="button" className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} m-2`} onClick={capWord}>Capitalize words</button>
-            <button type="button" className={`btn btn-outline-${props.mode === 'light' ? 'dark' : 'light'} m-2`} onClick={copyText}>Copy Text</button>
+            <button type="button" className={`btn btn-outline-${props.mode === 'light' ? 'dark' : 'light'} m-2`} onClick={copyText}>Copy text</button>
             <button type="button" className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} m-2`} onClick={clearText}>Clear text</button>
           </div>
           <div className='' >
             <h2 className={`my-3 text-${props.mode === 'dark' ? 'light' : 'dark'}`}>Text Summery</h2>
-            <p className=' text-success'> <strong>{text.length}</strong> Letters and <strong>{text.split(' ').length}</strong> Words</p>
+            <p className=' text-success'> <strong>{text.length}</strong> Letters and <strong>{calWords(text)}</strong> Words</p>
             <h2 className={`my-3 text-${props.mode === 'dark' ? 'light' : 'dark'}`}>Preview</h2>
             <p >{text.length > 0 ? text : 'Enter something above textfield to preview here.'}</p>
           </div>
