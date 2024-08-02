@@ -9,7 +9,9 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Alert from './components/Alert';
 import TextForms from './components/TextForms';
-// import About from './components/About';
+import Foot from './components/Foot';
+
+
 
 
 
@@ -55,6 +57,7 @@ function App() {
       < TextForms mode={mode} alertChanger={alertChanger} />
 
 
+      <Foot mode={mode} />
       {/* <div className="container">
           <Routes>
             <Route exact path="/about" element={<About />} />
