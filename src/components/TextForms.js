@@ -73,7 +73,7 @@ export default function TextForms(props) {
           <hr />
           <div className='' >
             <h2 className={`my-3 text-${props.mode === 'dark' ? 'light' : 'dark'}`}>Text Summery</h2>
-            <p className={`text-${props.mode === 'dark' ? 'info' : 'primary'}`}> <strong>{text.length}</strong> Letters and <strong>{text.split(' ').filter((e) => { return e.length }).length}</strong> Words</p>
+            <p className={`text-${props.mode === 'dark' ? 'info' : 'primary'}`}> <strong>{text.length}</strong> Letters and <strong>{text.split(/\s+/).filter((e) => { return e.length }).length}</strong> Words</p>
             <hr />
             <h2 className={`my-3 text-${props.mode === 'dark' ? 'light' : 'dark'}`}>Preview</h2>
             <p >{text.length > 0 ? text : 'Nothing to preview here.'}</p>

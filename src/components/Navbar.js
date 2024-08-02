@@ -1,12 +1,11 @@
 import React from 'react'
 
-// import { Link } from "react-router-dom";
 
 import PropTypes from 'prop-types'
 
 export default function Navbar(props) {
   return (
-    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
+    <nav className={`navbar border-bottom navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
         {/* <Link className="navbar-brand" to="/">{props.titles}</Link> */}
         <a className="navbar-brand" href="#" >{props.titles}</a>
